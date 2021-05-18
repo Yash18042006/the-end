@@ -37,7 +37,7 @@ function preload(){
 
 function setup() {
   createCanvas(600, 200);
-  
+  score = 0;
   backGround = createSprite(300,100);
   backGround.addImage(backGroundImage);
 
@@ -70,13 +70,13 @@ function setup() {
   cloudsGroup = new Group();
   obstaclesGroup = new Group();
   
-  score = 0;
+  
 }
 
 function draw() {
  
   background(255);
-  
+  text("Score: "+ score, 500, 50);
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
     
@@ -97,7 +97,7 @@ function draw() {
     
    
     
-    text("Score: "+ score, 500, 50);
+    
     if(obstaclesGroup.isTouching(trex)){
       gameState = END;
         
